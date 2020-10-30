@@ -1,0 +1,43 @@
+body {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.streak {
+  color: red;
+}
+
+.player {
+  color: white;
+}
+
+.player-1 {
+  background-color: #ff8eb1;
+}
+.player-2 {
+  background-color: #ffa655;
+}
+.player-3 {
+  background-color: #debd00;
+}
+.player-4 {
+  background-color: #94d100;
+}
+.player-5 {
+  background-color: #00de7a;
+}
+.player-6 {
+  background-color: #00e2ca;
+}
+.player-7 {
+  background-color: #00d9ff;
+}
+.player-8 {
+  background-color: #7abfff;
+}
+.player-9 {
+  background-color: #ed9cff;
+}
+.player-10 {
+  background-color: #ff87f7;
+}

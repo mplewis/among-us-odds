@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <b-container>
+      <b-row>
+        <b-col>
+          <pre><code>{{params}}</code></pre>
+          <p>
+            Out of {{total}} sessions, {{streaks}} sessions had a streak of at least one player
+            becoming Imposter {{params.streakMinLength}} times in a row.
+          </p>
+          <div v-for="session in sessions" :class="{streak: session.streak}">
+            {{session}}
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+  <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+  <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+  <script src="sim.js"></script>
+</body>
+</html>

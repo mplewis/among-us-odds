@@ -74,24 +74,27 @@ function simulateSessions({
   );
 }
 
-const params = {
-  sessionCount: 10_000,
-  gamesPerSession: 12,
-  playerCount: 10,
-  impostersPerGame: 2,
-  streakMinLength: 3,
-};
-const sessions = simulateSessions(params);
-const streaks = sessions.filter((s) => s.streak).length;
-const total = sessions.length;
-
 new Vue({
   el: "#app",
   data: () => ({
-    app: "vue",
-    params,
-    sessions,
-    streaks,
-    total,
+    sessionCount: 1_000,
+    gamesPerSession: 12,
+    playerCount: 10,
+    impostersPerGame: 2,
+    streakMinLength: 3,
   }),
+  computed: {
+    sessions() {
+      return simulateSessions({
+        sessionCount: parseInt(this.sessionCount, 10),
+        gamesPerSession: parseInt(this.gamesPerSession, 10),
+        playerCount: parseInt(this.playerCount, 10),
+        impostersPerGame: parseInt(this.impostersPerGame, 10),
+        streakMinLength: parseInt(this.streakMinLength, 10),
+      });
+    },
+    streaks() {
+      return this.sessions.filter((s) => s.streak).length;
+    },
+  },
 });

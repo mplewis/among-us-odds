@@ -13,10 +13,26 @@
     <b-container>
       <b-row>
         <b-col>
-          <pre><code>{{params}}</code></pre>
+          <b-form-group label="Sessions">
+            <b-form-input v-model="sessionCount" />
+          </b-form-group>
+          <b-form-group label="Games per session">
+            <b-form-input v-model="gamesPerSession" />
+          </b-form-group>
+          <b-form-group label="Players per game">
+            <b-form-input v-model="playerCount" />
+          </b-form-group>
+          <b-form-group label="Imposters per game">
+            <b-form-input v-model="impostersPerGame" />
+          </b-form-group>
+          <b-form-group label="How long is a streak, in games?">
+            <b-form-input v-model="streakMinLength" />
+          </b-form-group>
           <p>
-            Out of {{total}} sessions, {{streaks}} sessions had a streak of at least one player
-            becoming Imposter {{params.streakMinLength}} times in a row.
+            {{streaks}} of {{sessionCount}}
+             ({{Math.round(streaks/sessionCount * 100)}}%)
+             of {{gamesPerSession}}-game sessions with {{playerCount}} players and {{impostersPerGame}} imposters
+             had a streak of at least {{streakMinLength}} games where the same person was the imposter for all games.
           </p>
           <div v-for="session in sessions" :class="{streak: session.streak}">
             {{session}}
